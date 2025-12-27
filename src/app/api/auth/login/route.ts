@@ -4,11 +4,11 @@ import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
-DB()
 
 export async function POST(req: NextRequest) {
     try {
-
+        
+        await DB()
         const { email, password } = await req.json();
 
         if (!email || !password) {

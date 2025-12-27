@@ -1,9 +1,10 @@
+import { DB } from "@/lib/db";
 import User from "@/models/user";
 import { NextRequest, NextResponse } from "next/server";
-
 export async function GET() {
-    try {
 
+    try {
+        await DB()
         const user = await User.find();
         return NextResponse.json({ user })
 

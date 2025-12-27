@@ -3,11 +3,11 @@ import User from "@/models/user";
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 
-DB()
 
 export async function POST(req: NextRequest) {
     try {
-
+        
+        await DB()
         const { name, email, password } = await req.json();
 
         if (!name || !email || !password) {
