@@ -35,8 +35,9 @@ export async function POST(req: NextRequest) {
         const response = NextResponse.json({ message: `Welcome ${user.name}` }, { status: 201 });
 
         response.cookies.set("token", token, {
-            httpOnly: false,
-            sameSite: "none",
+            httpOnly: true,
+            secure: true,
+            sameSite: "lax",
         })
 
         return response;
